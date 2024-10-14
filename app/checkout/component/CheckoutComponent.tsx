@@ -81,11 +81,11 @@ const CheckoutComponent = () => {
 
   const { data: room, isLoading: roomLoading } = useRoomBySlug(roomSlug || "");
 
-  const { data: roomPrice } = useRoomPrice(
-    room?.slug || " ",
-    properties?.id || " ",
-    fromDate
-  );
+  // const { data: roomPrice } = useRoomPrice(
+  //   room?.slug || " ",
+  //   properties?.id || " ",
+  //   fromDate
+  // );
 
   const { data: session } = useSession();
   const { data: user, isLoading: userLoading } = useFindUserbyEmail(
@@ -221,7 +221,7 @@ const CheckoutComponent = () => {
                   <div className="sticky top-4">
                     <PriceDetailsCard
                       night={differenceInDays}
-                      price={roomPrice || 0}
+                      price={room.price || 0}
                     />
                     <Buttons
                       value={"Book now"}
